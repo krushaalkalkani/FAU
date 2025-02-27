@@ -1,0 +1,342 @@
+SQL> SELECT M.FNAME
+  2  FROM GUEST M, CITY C
+  3  WHERE C.NAME='Chicago' AND M.AGE>75 AND M.CID=C.ID;
+
+FNAME                                                                           
+--------------------                                                            
+Nabeel                                                                          
+
+SQL> SELECT HL.NAME
+  2  FROM HOTEL HL, CITY CI, RESERVE RE, GUEST M
+  3  WHERE M.ID=RE.GID AND CI.ID=HL.CID AND CI.ID=M.CID AND CI.NAME='Coral Springs' AND M.FNAME='Theotis' AND M.LNAME='Dayton';
+
+no rows selected
+
+SQL> SELECT DISTINCT M.FNAME
+  2  FROM GUEST M, HOTEL HL, ROOM RM, RESERVE RE
+  3  WHERE HL.ID=RM.HID AND RE.HID=RM.HID AND M.ID=RE.GID
+  4  AND HL.NAME='Hotel Wailea Maui' AND RE.CHECK_IN_DATE BETWEEN '06-
+  5  AUG-23' and '23-AUG-23';
+
+FNAME                                                                           
+--------------------                                                            
+Tou                                                                             
+Krisheena                                                                       
+
+SQL> SELECT DISTINCT M.FNAME
+  2  FROM GUEST M, RESERVE RE, BILL BL
+  3  WHERE M.ID=RE.GID AND RE.ID=BL.RID AND BL.MISC_CHARGE>98 AND RE.CHECK_IN_DATE='16-FEB-23';
+
+FNAME                                                                           
+--------------------                                                            
+Jelisa                                                                          
+
+SQL> SELECT DISTINCT M.FNAME
+  2  FROM GUEST M, RESERVE RE, BILL BL, HOTEL HL
+  3  WHERE M.ID=RE.GID AND RE.ID=BL.RID AND HL.ID=RE.HID AND BL.PAYMENT_DATE='10-MAR-23' AND RE.RNO=2 AND HL.NAME='Comfort Suites Hotel';
+
+FNAME                                                                           
+--------------------                                                            
+Tamsen                                                                          
+
+SQL> SELECT M.FNAME
+  2  FROM GUEST M, CITY CI, RESERVE RE
+  3  WHERE M.CID=CI.ID AND M.ID=RE.GID AND RE.CHECK_IN_DATE='19-MAR-22';
+
+FNAME                                                                           
+--------------------                                                            
+Montez                                                                          
+Trivia                                                                          
+Karlisha                                                                        
+Amberley                                                                        
+Dexter                                                                          
+Shiann                                                                          
+Kenisha                                                                         
+Jemal                                                                           
+Meghana                                                                         
+Carri                                                                           
+Savhanna                                                                        
+
+FNAME                                                                           
+--------------------                                                            
+Nadeem                                                                          
+Jaryd                                                                           
+Julianna                                                                        
+Talan                                                                           
+Lyndsie                                                                         
+Tami                                                                            
+Mikell                                                                          
+Laraine                                                                         
+Elizabath                                                                       
+Gannon                                                                          
+Kaveh                                                                           
+
+FNAME                                                                           
+--------------------                                                            
+Trudy                                                                           
+Zacharia                                                                        
+Stevin                                                                          
+Travious                                                                        
+Rabecca                                                                         
+Westin                                                                          
+Maryia                                                                          
+Hervey                                                                          
+Leonna                                                                          
+Ariana                                                                          
+Carmelle                                                                        
+
+FNAME                                                                           
+--------------------                                                            
+Launa                                                                           
+Karima                                                                          
+Temika                                                                          
+Nickole                                                                         
+Chelcey                                                                         
+Nicollette                                                                      
+Aruna                                                                           
+Shastina                                                                        
+Latorra                                                                         
+Quintisha                                                                       
+Jannel                                                                          
+
+FNAME                                                                           
+--------------------                                                            
+Donta                                                                           
+Edlin                                                                           
+Michaeal                                                                        
+Kourtni                                                                         
+Lehua                                                                           
+Afton                                                                           
+Malinda                                                                         
+Basim                                                                           
+Garnell                                                                         
+Delrico                                                                         
+Rikki                                                                           
+
+FNAME                                                                           
+--------------------                                                            
+Kestrel                                                                         
+Tierre                                                                          
+Roshawn                                                                         
+Nhia                                                                            
+Gilles                                                                          
+Sherman                                                                         
+Jes                                                                             
+Brandley                                                                        
+Lerin                                                                           
+Rakeem                                                                          
+Travares                                                                        
+
+FNAME                                                                           
+--------------------                                                            
+Brenee                                                                          
+Anacani                                                                         
+Markey                                                                          
+Saturnino                                                                       
+Jay                                                                             
+Tawnie                                                                          
+Xia                                                                             
+Fionnuala                                                                       
+Lashawnda                                                                       
+Delvon                                                                          
+Shiketa                                                                         
+
+FNAME                                                                           
+--------------------                                                            
+Kalon                                                                           
+Michelle                                                                        
+Keonia                                                                          
+Laisha                                                                          
+Joelouis                                                                        
+Ranada                                                                          
+Lorra                                                                           
+Sherylann                                                                       
+Karalee                                                                         
+Rosia                                                                           
+Charece                                                                         
+
+FNAME                                                                           
+--------------------                                                            
+Trinity                                                                         
+Eri                                                                             
+Tyishia                                                                         
+Lilyana                                                                         
+Javonte                                                                         
+Zeshan                                                                          
+Myeshia                                                                         
+Bryce                                                                           
+Daarina                                                                         
+Shaylen                                                                         
+Tesia                                                                           
+
+FNAME                                                                           
+--------------------                                                            
+Ludwig                                                                          
+Rudie                                                                           
+Jeffey                                                                          
+Gillian                                                                         
+Shylo                                                                           
+Jacquelynn                                                                      
+
+105 rows selected.
+
+SQL> SELECT DISTINCT M.FNAME
+  2  FROM GUEST M, RESERVE RE1, RESERVE RE2
+  3  WHERE RE1.RNO=RE2.RNO AND M.ID=RE1.GID AND M.ID=RE2.GID AND RE1.CHECK_IN_DATE<>RE2.CHECK_IN_DATE AND RE1.CHECK_IN_DATE BETWEEN '10-MAY-23' AND '28-JUN-23' AND RE2.CHECK_IN_DATE BETWEEN '10-MAY-23' AND '28-JUN-23';
+
+FNAME                                                                           
+--------------------                                                            
+Shawniece                                                                       
+Tres                                                                            
+Rikki                                                                           
+Mattison                                                                        
+Alessandro                                                                      
+Opal                                                                            
+Campbell                                                                        
+Takera                                                                          
+Shantivia                                                                       
+Lakeasha                                                                        
+Mauro                                                                           
+
+FNAME                                                                           
+--------------------                                                            
+Nija                                                                            
+Johua                                                                           
+Mariella                                                                        
+Lavonna                                                                         
+Reynolds                                                                        
+Brandenn                                                                        
+Demonica                                                                        
+Salvadore                                                                       
+Jonisha                                                                         
+Mariquita                                                                       
+Lenise                                                                          
+
+FNAME                                                                           
+--------------------                                                            
+Serra                                                                           
+Katarina                                                                        
+Honor                                                                           
+Ewa                                                                             
+Annmarie                                                                        
+Jaccob                                                                          
+Bryon                                                                           
+Phebe                                                                           
+Duval                                                                           
+Ambra                                                                           
+Calley                                                                          
+
+FNAME                                                                           
+--------------------                                                            
+Azra                                                                            
+Solana                                                                          
+Elizabath                                                                       
+Giovanni                                                                        
+Sherina                                                                         
+Cosmo                                                                           
+Joshuwa                                                                         
+Chemere                                                                         
+Natthew                                                                         
+Tynan                                                                           
+Amador                                                                          
+
+FNAME                                                                           
+--------------------                                                            
+Mahmoud                                                                         
+Justeen                                                                         
+Shenicka                                                                        
+Jorel                                                                           
+Tabia                                                                           
+Sharri                                                                          
+Uyen                                                                            
+Shala                                                                           
+Amandeep                                                                        
+Ashira                                                                          
+Jemma                                                                           
+
+FNAME                                                                           
+--------------------                                                            
+Serenna                                                                         
+Otavia                                                                          
+Janice                                                                          
+Keriann                                                                         
+Ladarius                                                                        
+Steffon                                                                         
+Bernice                                                                         
+Everett                                                                         
+Mery                                                                            
+Viktor                                                                          
+Tyshelle                                                                        
+
+FNAME                                                                           
+--------------------                                                            
+Clive                                                                           
+Cheryll                                                                         
+Tamecia                                                                         
+Kamaria                                                                         
+Callum                                                                          
+Alanah                                                                          
+Jayna                                                                           
+Charnell                                                                        
+Jilliann                                                                        
+Ying                                                                            
+Jacleen                                                                         
+
+FNAME                                                                           
+--------------------                                                            
+Wilber                                                                          
+Rusti                                                                           
+Stepheny                                                                        
+Agustin                                                                         
+Adelaida                                                                        
+Thaddeus                                                                        
+Shalana                                                                         
+Takiya                                                                          
+Bryston                                                                         
+Donika                                                                          
+Laural                                                                          
+
+FNAME                                                                           
+--------------------                                                            
+Camile                                                                          
+
+89 rows selected.
+
+SQL> SELECT M.FNAME
+  2  FROM GUEST M
+  3  WHERE M.ID NOT IN
+  4  (SELECT M.ID
+  5  FROM GUEST M, RESERVE RE
+  6  WHERE M.ID=RE.GID AND RE.CHECK_IN_DATE BETWEEN '06-JAN-20' AND '23-AUG-24');
+
+FNAME                                                                           
+--------------------                                                            
+Lera                                                                            
+
+SQL> SELECT DISTINCT M.FNAME
+  2  FROM GUEST M, RESERVE RE, HOTEL HL
+  3  WHERE M.ID=RE.GID AND HL.ID=RE.HID AND HL.NAME='Fairfield Mission Viejo' AND M.AGE>83
+  4  AND NOT EXISTS
+  5  (SELECT RM.NO
+  6  FROM ROOM RM, HOTEL HL
+  7  WHERE RM.HID=HL.ID AND HL.NAME='Fairfield Mission Viejo'
+  8  MINUS
+  9  SELECT RE.RNO
+ 10  FROM GUEST M, RESERVE RE, HOTEL HL
+ 11  WHERE M.ID=RE.GID AND RE.HID=HL.ID AND M.AGE>83 AND HL.NAME='Fairfield Mission Viejo');
+
+FNAME                                                                           
+--------------------                                                            
+Christophere                                                                    
+
+SQL> SELECT HL.NAME
+  2  FROM HOTEL HL, EMPLOYEE EMP, ROOM RM
+  3  WHERE RM.HID=HL.ID AND HL.ID=EMP.HID GROUP BY HL.NAME HAVING COUNT(DISTINCT RM.NO)>23 AND COUNT(DISTINCT EMP.HID)>3;
+
+NAME                                                                            
+--------------------------------------------------------------------------------
+Americas Best Value Inn                                                         
+Comfort Inn                                                                     
+Holiday Inn Express                                                             
+
+SQL> spool off

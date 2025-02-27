@@ -1,0 +1,37 @@
+SQL> INSERT INTO customer (id, age) VALUES (2, 20);
+
+1 row created.
+
+SQL> COMMIT;
+
+Commit complete.
+
+SQL> UPDATE customer SET age = age + 10;
+
+1 row updated.
+
+SQL> COMMIT;
+
+Commit complete.
+
+SQL> INSERT INTO customer (id, age) VALUES (2, 20);
+
+1 row created.
+
+SQL> COMMIT;
+
+Commit complete.
+
+SQL> UPDATE customer SET age = 30 WHERE id = 1;
+
+1 row updated.
+
+SQL> INSERT INTO customer (id, age) VALUES (2, 40); -- Expected to fail due to primary key conflict
+  2  COMMIT;
+INSERT INTO customer (id, age) VALUES (2, 40); -- Expected to fail due to primary key conflict
+                                             *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended 
+
+
+SQL> SPOOL OFF

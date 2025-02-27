@@ -1,0 +1,71 @@
+SQL> DELETE FROM customer;
+
+0 rows deleted.
+
+SQL> COMMIT;
+
+Commit complete.
+
+SQL> INSERT INTO customer (id, age) VALUES (1, 20);
+
+1 row created.
+
+SQL> COMMIT;
+
+Commit complete.
+
+SQL> DELETE FROM customer;
+
+0 rows deleted.
+
+SQL> COMMIT;
+
+Commit complete.
+
+SQL> INSERT INTO customer (id, age) VALUES (1, 20);
+
+1 row created.
+
+SQL> COMMIT;
+
+Commit complete.
+
+SQL> DELETE FROM customer;
+
+1 row deleted.
+
+SQL> COMMIT;
+
+Commit complete.
+
+SQL> INSERT INTO customer (id, age) VALUES (1, 20);
+
+1 row created.
+
+SQL> COMMIT;
+
+Commit complete.
+
+SQL> DELETE FROM customer;
+
+0 rows deleted.
+
+SQL> COMMIT;
+
+Commit complete.
+
+SQL> INSERT INTO customer (id, age) VALUES (1, 20);
+
+1 row created.
+
+SQL> COMMIT;
+
+Commit complete.
+
+SQL> INSERT INTO customer (id, age) VALUES (2, 30);
+
+1 row created.
+
+SQL> COMMIT;SPOOL OFF
+  2  
+SQL> SPOOL OFF
